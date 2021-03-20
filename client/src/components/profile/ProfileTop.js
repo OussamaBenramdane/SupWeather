@@ -8,8 +8,8 @@ const ProfileTop = ({
     location,
     website,
     bio,
-    user: { _id, name, avatar }
-  }
+    user: { _id, name, avatar },
+  },
 }) => {
   return (
     <Fragment>
@@ -44,8 +44,8 @@ const ProfileTop = ({
           </a>
         </div>
       </div>
-      <div class='profile-about bg-light p-2'>
-        <h2 class='text-primary'>{name}'s Bio</h2>
+      <div className='profile-about bg-light p-2'>
+        <h2 className='text-primary'>{name}'s Bio</h2>
         <p>{bio}</p>
       </div>
     </Fragment>
@@ -53,7 +53,7 @@ const ProfileTop = ({
 };
 
 ProfileTop.propTypes = {
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
 export default ProfileTop;

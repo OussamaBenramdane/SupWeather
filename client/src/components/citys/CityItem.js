@@ -1,19 +1,17 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import { isMoment } from 'moment';
 import { deleteCity } from '../../actions/city';
 const CityItem = ({
   auth,
   deleteCity,
-  city: { _id, city, Mode, temperature, Min, Max, icon }
+  city: { _id, city, Mode, temperature, Min, Max, icon },
 }) => {
   return (
     <div className='card weather-card'>
       <div className='card-body pb-3'>
-        <img src={require(`../../img/${icon}.png`)}></img>
+        <img src={require(`../../img/${icon}.png`)} alt=''></img>
         <h4 className='card-title font-weight-bold'>{city}</h4>
 
         <p className='card-text'>
@@ -41,11 +39,11 @@ const CityItem = ({
         </ul>
 
         <button
-          onClick={e => deleteCity(_id)}
+          onClick={(e) => deleteCity(_id)}
           type='button'
           className='btn btn-danger'
         >
-          <i class='fas fa-times'></i>
+          <i className='fas fa-times'></i>
         </button>
       </div>
     </div>
@@ -55,10 +53,10 @@ const CityItem = ({
 CityItem.propTypes = {
   city: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
-  deleteCity: PropTypes.func.isRequired
+  deleteCity: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 export default connect(mapStateToProps, { deleteCity })(CityItem);

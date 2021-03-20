@@ -5,7 +5,7 @@ import { getCitys } from '../../actions/city';
 import CityItem from './CityItem';
 import CityForm from './CityForm';
 import Spinner from '../layout/Spinner';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 /*const Citys = ({ getCitys, city: { citys, loading } }) => {
   useEffect(() => {
@@ -53,10 +53,10 @@ const Citys = ({ getCitys, city: { citys, loading } }) => {
 };
 Citys.propTypes = {
   getCitys: PropTypes.func.isRequired,
-  city: PropTypes.object.isRequired
+  city: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  city: state.city
+const mapStateToProps = (state) => ({
+  city: state.city,
 });
 export default connect(mapStateToProps, { getCitys })(Citys);

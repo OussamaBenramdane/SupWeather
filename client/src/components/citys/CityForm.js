@@ -6,13 +6,13 @@ import { addCity } from '../../actions/city';
 const CityForm = ({ addCity }) => {
   const [text, setText] = useState('');
   return (
-    <div class='post-form'>
-      <div class='bg-primary p'>
+    <div className='post-form'>
+      <div className='bg-primary p'>
         <h3>Add a city</h3>
       </div>
       <form
-        class='form my-1'
-        onSubmit={e => {
+        className='form my-1'
+        onSubmit={(e) => {
           e.preventDefault();
           addCity({ text });
           setText('');
@@ -20,21 +20,21 @@ const CityForm = ({ addCity }) => {
       >
         <textarea
           name='text'
-          cols='30'
-          rows='5'
-          placeholder='Comment on this post'
+          cols='5'
+          rows='1'
+          placeholder='City name ...'
           value={text}
-          onChange={e => setText(e.target.value)}
+          onChange={(e) => setText(e.target.value)}
           required
         ></textarea>
-        <input type='submit' class='btn btn-dark my-1' value='Submit' />
+        <input type='submit' className='btn btn-dark my-1' value='Submit' />
       </form>
     </div>
   );
 };
 
 CityForm.propTypes = {
-  addCity: PropTypes.func.isRequired
+  addCity: PropTypes.func.isRequired,
 };
 
 export default connect(null, { addCity })(CityForm);

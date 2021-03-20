@@ -8,18 +8,18 @@ const Landing = ({ isAuthenticated }) => {
     return <Redirect to='/dashboard' />;
   }
   return (
-    <section class='landing'>
-      <div class='dark-overlay'>
-        <div class='landing-inner'>
-          <h1 class='x-large'>Sup Weather</h1>
-          <p class='lead'>
-            Choose your weather an fell the heat of the citie from your place
+    <section className='landing'>
+      <div className='dark-overlay'>
+        <div className='landing-inner'>
+          <h1 className='x-large'>SUP WEATHER</h1>
+          <p className='lead'>
+            Choose your city an feel it's weather from your place
           </p>
-          <div class='buttons'>
-            <Link to='/register' class='btn btn-primary'>
+          <div className='buttons'>
+            <Link to='/register' className='btn btn-primary'>
               Sign Up
             </Link>
-            <Link to='/login' class='btn btn-light'>
+            <Link to='/login' className='btn btn-light'>
               Login
             </Link>
           </div>
@@ -30,10 +30,10 @@ const Landing = ({ isAuthenticated }) => {
 };
 
 Landing.propTypes = {
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps)(Landing);

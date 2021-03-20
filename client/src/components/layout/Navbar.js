@@ -14,7 +14,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Link to='/citys'>Citys</Link>
       </li>
       <li>
-        <Link className='nav-item nav-link' to='/dashboard'>
+        <Link c to='/dashboard'>
           <i className='fas fa-user'></i>
           <span className='hide-sm'> Dashboard</span>
         </Link>
@@ -57,9 +57,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
 Navbar.propTypes = {
   logout: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 export default connect(mapStateToProps, { logout })(Navbar);

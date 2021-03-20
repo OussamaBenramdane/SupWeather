@@ -11,7 +11,7 @@ import ProfileTop from './ProfileTop';
 const Profile = ({
   getCurrentProfile,
   profile: { profile, loading, auth },
-  match
+  match,
 }) => {
   useEffect(() => {
     getCurrentProfile(match.params.id);
@@ -29,7 +29,7 @@ const Profile = ({
           <Link to='/edit-profile' className='btn btn-dark'>
             Edit Profile
           </Link>
-          <div class='profile-grid my-1'>
+          <div className='profile-grid my-1'>
             <ProfileTop profile={profile} />
           </div>
         </Fragment>
@@ -41,11 +41,11 @@ const Profile = ({
 Profile.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   profile: state.profile,
-  auth: state.auth
+  auth: state.auth,
 });
 export default connect(mapStateToProps, { getCurrentProfile })(Profile);
