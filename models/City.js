@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 const CitySchema = new mongoose.Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'users',
   },
-  name: {
+  cityName: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 module.exports = City = mongoose.model('city', CitySchema);

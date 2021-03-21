@@ -7,7 +7,6 @@ const config = require('config');
 const key = config.get('WeatherKey');
 
 const City = require('../../models/City');
-const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 
@@ -37,7 +36,7 @@ async function getWeather(cities) {
       temperature: Weather_json.main.temp,
       Min: Weather_json.main.temp_min,
       Max: Weather_json.main.temp_max,
-      icon: Weather_json.weather[0].icon
+      icon: Weather_json.weather[0].icon,
     };
     weather_data.push(weather);
     // }
@@ -58,18 +57,18 @@ router.get('/', auth, async (req, res) => {
         if (err) {
           return res.status(404).json({
             err,
-            message: 'Citys not found!'
+            message: 'Citys not found!',
           });
         }
         getWeather(cities)
-          .then(function(results) {
+          .then(function (results) {
             const weather_data = { weather_data: results };
             res.json(weather_data);
           })
-          .catch(error => {
+          .catch((error) => {
             return res.status(404).json({
               error,
-              message: '404'
+              message: '404',
             });
           });
       }
@@ -85,24 +84,16 @@ router.get('/', auth, async (req, res) => {
 //@access Private
 router.post(
   '/',
-  [
-    auth,
-    [
-      check('city', 'cityname is required')
-        .not()
-        .isEmpty()
-    ]
-  ],
+  [auth, [check('cityName', 'cityname is required').not().isEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
     try {
-      const user = await User.findById(req.user.id).select('-password');
       const newCity = await new City({
-        name: req.body.name,
-        user: req.user.id
+        cityName: req.body.cityName,
+        user: req.user.id,
       });
 
       const city = await newCity.save();
