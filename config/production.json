@@ -1,0 +1,5 @@
+{
+  "mongoURI": "mongodb+srv://Stalker19:Stalker19@supweather-skxb6.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "TheZone",
+  "WeatherKey": "2c9af973e0c5d16d6ef837da372a598b"
+}
