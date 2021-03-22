@@ -18,20 +18,20 @@ async function getWeather(cities) {
   let weather_data = [];
 
   for (let city_obj of cities) {
-    let city = city_obj.name;
+    let city = city_obj.cityName;
     let id = city_obj.id;
-    let us = city_obj.user;
+    //let us = city_obj.user;
 
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&units=imperial&appid=${key}`;
-
     //Check
+
     let response_body = await request(url);
     let Weather_json = JSON.parse(response_body);
     //const ct = await City.findById(req.params.id);
     //if (ct.user.toString() == req.user.id) {
     let weather = {
       id: id,
-      city: city,
+      city: Weather_json.name,
       Mode: Weather_json.weather[0].main,
       temperature: Weather_json.main.temp,
       Min: Weather_json.main.temp_min,
@@ -95,7 +95,9 @@ router.post(
         cityName: req.body.cityName,
         user: req.user.id,
       });
-
+      let Sity = req.body.cityName;
+      const url = `http://api.openweathermap.org/data/2.5/weather?q=${Sity}&units=metric&units=imperial&appid=${key}`;
+      cod = await request(url);
       const city = await newCity.save();
       res.json(city);
     } catch (err) {
@@ -108,10 +110,11 @@ router.post(
 //@route GET api/citys
 //@desc   Create a p
 //@access Private
-/*router.get('/', auth, async (req, res) => {
+/*router.get('/citys', auth, async (req, res) => {
+  citts = { name: 'Angers' };
   try {
-    const posts = await Post.find().sort({ date: -1 });
-    res.json(posts);
+    const cities = await City.find().sort({ date: -1 });
+    res.json(cities);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addCity } from '../../actions/city';
 
 const CityForm = ({ addCity }) => {
-  const [text, setText] = useState('');
+  const [cityName, setcityName] = useState('');
   return (
     <div className='post-form'>
       <div className='bg-primary p'>
@@ -13,9 +13,8 @@ const CityForm = ({ addCity }) => {
       <form
         className='form my-1'
         onSubmit={(e) => {
-          e.preventDefault();
-          addCity({ text });
-          setText('');
+          addCity({ cityName });
+          setcityName('');
         }}
       >
         <textarea
@@ -23,11 +22,11 @@ const CityForm = ({ addCity }) => {
           cols='5'
           rows='1'
           placeholder='City name ...'
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={cityName}
+          onChange={(e) => setcityName(e.target.value)}
           required
         ></textarea>
-        <input type='submit' className='btn btn-dark my-1' value='Submit' />
+        <input type='submit' className='btn btn-dark my-1' value='Add' />
       </form>
     </div>
   );

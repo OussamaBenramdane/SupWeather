@@ -43,7 +43,7 @@ const Citys = ({ getCitys, city: { citys, loading } }) => {
       <CityForm />
       <Row>
         {citys.map((city, index) => (
-          <Col xs='4'>
+          <Col xs='4' key={index}>
             <CityItem key={city._id} city={city} />{' '}
           </Col>
         ))}

@@ -23,13 +23,13 @@ export const getCitys = () => async (dispatch) => {
 
 export const deleteCity = (id) => async (dispatch) => {
   try {
-    //const res = await axios.delete(`/api/city/${id}`);
-
+    await axios.delete(`/api/city/${id}`);
     dispatch({
       type: DELETE_CITY,
       payload: id,
     });
     dispatch(setAlert('City Removed', 'success'));
+    window.location.reload();
   } catch (err) {
     dispatch({
       type: CITY_ERROR,
@@ -52,6 +52,7 @@ export const addCity = (formData) => async (dispatch) => {
       type: ADD_CITY,
       payload: res.data,
     });
+
     dispatch(setAlert('City Created', 'success'));
   } catch (err) {
     dispatch({
