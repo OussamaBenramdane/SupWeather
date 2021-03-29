@@ -16,6 +16,8 @@ For the Sever : [ExpressJS and Node JS](https://expressjs.com/fr/e)
 
 For the client side: [ReactJs](https://fr.reactjs.org/)
 
+## Technologies used
+
 ## Instalation
 
 You need to have nodeJs on your machine
