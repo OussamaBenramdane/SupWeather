@@ -16,7 +16,9 @@ For the Sever : [ExpressJS and Node JS](https://expressjs.com/fr/e)
 
 For the client side: [ReactJs](https://fr.reactjs.org/)
 
-## Technologies used
+## The API
+
+The api used in the app is : [Openweathermap](https://openweathermap.org/)
 
 ## Instalation
 
